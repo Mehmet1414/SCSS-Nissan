@@ -1,0 +1,250 @@
+@import"variables";
+@import"modules";
+
+@mixin mobile {
+    @media (max-width: 1000px) {
+        @content
+    }
+}
+
+@mixin tablet {
+    @media (min-width: 1001px) and (max-width:1200px) {
+        @content
+    }
+}
+
+body {
+    background-color: $background;
+    overflow-x: hidden;
+}
+
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    font-family: $font-main;
+    color: $text-color;
+    gap: 10px;
+    padding: 20px 0;
+
+    nav {
+        display: flex;
+        align-items: center;
+
+        a {
+            text-decoration: none;
+            color: $text-color;
+            padding: 5px;
+            transition: color 0.3s, text-shadow 0.3s;
+            white-space: nowrap;
+
+            &:hover {
+                color: $red !important;
+                text-shadow: 2px 2px 20px $red;
+                @extend .hover;
+            }
+        }
+    }
+
+    #nav-left {
+        a {
+            font-size: 15px;
+            font-weight: 600;
+            border-right: 1px solid;
+        }
+
+        img {
+            max-width: 50px;
+        }
+    }
+
+    #nav-right {
+        a {
+            font-size: 14px;
+            color: gray;
+        }
+    }
+}
+
+/* Karsilama alani */
+
+.hero {
+
+    min-height: calc(100vh - 68px);
+    padding: 50px;
+    background: linear-gradient(rgb(215, 215, 215)60%, $background 40%);
+    display: flex;
+    justify-content: space-between;
+
+
+    @include mobile {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    @include tablet {
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+
+#slogan {
+
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    align-items: center;
+    gap: 50px;
+
+    h1 {
+        @extend .baslik;
+        font-size: 30px;
+
+
+    }
+
+    p {
+        text-align: center;
+        font-size: 20px;
+    }
+
+    img {
+        max-width: 200px;
+        mix-blend-mode: darken;
+    }
+
+    h2 {
+        font-size: 40px;
+        @extend .baslik;
+
+    }
+
+    button {
+       @extend %btn;
+        transition: background-color 0.3s;
+
+    }
+}
+
+#images {
+
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+
+    &-main {
+        max-width: 700px;
+
+        @include mobile {
+            max-width: 500px;
+        }
+    }
+
+    &-second {
+        max-width: 400px;
+        mix-blend-mode: darken;
+    }
+
+    p {
+        max-width: 500px;
+        text-align: center;
+    }
+}
+
+#interior {
+    background: radial-gradient(circle, transparent, rgb(36, 34, 34)), url(./img/interior.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    @extend %desing;
+
+    button{
+        transition: background-color 0.3s;
+        @extend .hover;
+    }
+}
+
+//! arabalar alani
+
+#cars-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    margin: 100px 0;
+    h1{
+        text-align: center;
+        @extend .baslik;
+    }
+
+    .r35{
+        img{
+            max-width: 340px;
+        }
+    }
+    
+    .cars{
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        @include mobile {
+            flex-direction: column;
+        }
+        @include tablet {
+            gap: 30px;
+        }
+        &-card{
+            width: 400px;
+            img{
+                width: 100%;
+                mix-blend-mode: darken;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            @include tablet {
+                gap: 30px;
+                width: 300px;
+            }
+            h4{
+                text-align: center;
+                white-space: nowrap;
+            }
+    
+        }
+    }
+    button{
+        text-align: center;
+        @extend %btn;
+    
+    }
+}
+
+#exteior{
+    background: radial-gradient(circle, transparent, rgb(0, 0, 0)), url(./img/exterior-4.jpg);
+    background-size: cover;
+    background-position: center;
+
+    @extend %desing;
+    
+}
+
+footer{
+    background-color: black;
+    border-top: 2px solid $red;
+    display: flex;
+    gap: 40px;
+    padding: 30px;
+    align-items: center;
+    justify-content: center;
+    img{
+        max-width: 200px;
+    }
+    p{
+        color: white;
+    }
+}
