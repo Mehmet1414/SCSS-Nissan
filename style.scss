@@ -73,7 +73,7 @@ header {
 
     min-height: calc(100vh - 68px);
     padding: 50px;
-    background: linear-gradient(rgb(215, 215, 215)60%, $background 40%);
+    background: linear-gradient(rgb(215, 215, 215)40%, $background 40%);
     display: flex;
     justify-content: space-between;
 
@@ -132,14 +132,18 @@ header {
 
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 40px;
     align-items: center;
 
     &-main {
         max-width: 700px;
-
+        transition: all 0.3s;
         @include mobile {
             max-width: 500px;
+        }
+        &:hover{
+            transform: translate(-100px, 50px);
+            @extend  .hover;
         }
     }
 
